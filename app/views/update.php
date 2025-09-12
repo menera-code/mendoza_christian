@@ -132,6 +132,37 @@
             box-shadow: 0 0 5px var(--accent-color);
         }
 
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            body {
+                padding: 0.5rem;
+            }
+            .form-container {
+                padding: 1rem;
+                max-width: 98vw;
+            }
+            h1 {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+            label {
+                font-size: 0.85rem;
+            }
+            input[type="text"],
+            input[type="email"] {
+                font-size: 0.95rem;
+                padding: 0.5rem;
+            }
+            button[type="submit"] {
+                padding: 0.5rem 1rem;
+                font-size: 0.95rem;
+                margin-top: 0.7rem;
+            }
+            .back-link {
+                font-size: 0.9rem;
+                margin-top: 1rem;
+            }
+        }
     </style>
 </head>
 <body>

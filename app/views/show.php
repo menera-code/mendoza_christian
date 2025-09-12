@@ -130,6 +130,32 @@
             box-shadow: 0 0 20px var(--accent-color);
         }
 
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            body {
+                padding: 0.5rem;
+            }
+            .container {
+                padding: 0.5rem;
+                margin-top: 0.5rem;
+            }
+            h1 {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+            table, th, td {
+                font-size: 0.85rem;
+                padding: 0.5rem;
+            }
+            th, td {
+                padding: 0.5rem;
+            }
+            .create-record-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.95rem;
+                margin-top: 1rem;
+            }
+        }
     </style>
 </head>
 <body>

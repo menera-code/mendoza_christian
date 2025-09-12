@@ -5,6 +5,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to LavaLust</title>
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <style>
@@ -27,12 +28,13 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
             border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             overflow: hidden;
+            padding: 0 1rem;
         }
 
         .header {
             background: #3B82F6; /* lighter blue */
             color: #ffffff;
-            padding: 2rem;
+            padding: 2rem 1rem;
             text-align: center;
         }
 
@@ -42,7 +44,43 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
         }
 
         .main {
-            padding: 2rem;
+            padding: 2rem 0.5rem;
+        }
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            .container {
+                margin: 1rem auto;
+                padding: 0 0.2rem;
+            }
+            .header {
+                padding: 1.2rem 0.5rem;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .main {
+                padding: 1rem 0.2rem;
+            }
+            h2 {
+                font-size: 1.1rem;
+                margin-top: 1.2rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .card {
+                padding: 0.7rem;
+                font-size: 0.97rem;
+            }
+            pre, code {
+                font-size: 0.85rem;
+                padding: 0.5rem;
+            }
+            .footer {
+                font-size: 0.8rem;
+                padding: 0.5rem;
+            }
         }
 
         h2 {
