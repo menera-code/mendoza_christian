@@ -1,14 +1,19 @@
-# Use official PHP with Apache
-FROM php:8.0-apache
+FROM php:8.2-apache
 
-# Install extensions
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# Install PDO MySQL
+RUN docker-php-ext-install pdo pdo_mysql
 
-# Copy all project files into container
+# Enable Apache mod_rewrite
+RUN a2enmod rewrite
+
+# Allow .htaccess overrides
+RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
+
+# Copy app files
 COPY . /var/www/html/
 
-# Set working directory
-WORKDIR /var/www/html/
+# Fix permissions
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html
 
-# Enable Apache rewrite module (important for Lavalust routes)
-RUN a2enmod rewrite
+EXPOSE 80

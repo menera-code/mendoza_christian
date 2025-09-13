@@ -61,9 +61,9 @@ $database['main'] = array(
     'driver'    => 'mysql',       // MySQL driver
     'hostname'  => '127.0.0.1',    // or 'localhost'
     'port'      => '3306',         // default MySQL port
-    'username'  => 'root',         // XAMPP default user
-    'password'  => '',             // leave empty if no password
-    'database'  => 'mockdata',// your database name
+    'username'  => 'sql12798481',         // XAMPP default user
+    'password'  => '57y8CIXtAI',             // leave empty if no password
+    'database'  => 'sql12798481',// your database name
     'charset'   => 'utf8mb4',      // recommended charset
     'dbprefix'  => ''              // leave empty unless you want a prefix
 );
