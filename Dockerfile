@@ -12,6 +12,13 @@ RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/Allo
 # Copy app files
 COPY . /var/www/html/
 
+# Set the document root to /var/www/html/public
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+
+# Update Apache config to use /public as the root
+RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf \
+    && sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/apache2.conf
+
 # Fix permissions
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
