@@ -39,16 +39,9 @@
             background-size: 40px 40px;
         }
 
-        /* Animation */
         @keyframes fadeSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .container {
@@ -77,6 +70,7 @@
             text-transform: uppercase;
         }
 
+        /* Search */
         .search-container {
             display: flex;
             justify-content: center;
@@ -85,6 +79,14 @@
             animation: fadeSlideUp 1s ease forwards;
             animation-delay: 0.2s;
             opacity: 0;
+        }
+
+        .search-container form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            width: 100%;
+            align-items: center;
         }
 
         #searchBox {
@@ -118,7 +120,6 @@
             text-shadow: 0 0 5px var(--color-accent-neon);
             box-shadow: 0 0 10px rgba(0, 255, 128, 0.4);
             transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-            margin-left: 0.5rem;
         }
 
         .search-btn:hover {
@@ -127,47 +128,13 @@
             box-shadow: 0 0 20px var(--color-accent-neon);
         }
 
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            min-width: 600px;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.95rem;
-            border-radius: 8px;
-        }
-
-        th, td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        thead {
-            background-color: var(--color-table-header-bg);
-        }
-
-        th {
-            font-weight: 700;
-            color: var(--color-accent-neon);
-            text-transform: uppercase;
-        }
-
-        tr {
-            transition: background-color 0.3s ease;
-        }
-
-        tbody tr:hover {
-            background-color: var(--color-table-row-hover);
-            box-shadow: inset 2px 0 0 0 var(--color-accent-neon);
-        }
-
-        .action-links {
-            white-space: nowrap;
-        }
+        /* Table */
+        .table-responsive { width: 100%; overflow-x: auto; }
+        table { width: 100%; min-width: 600px; border-collapse: collapse; text-align: left; font-size: 0.95rem; border-radius: 8px; }
+        th, td { padding: 1rem; border-bottom: 1px solid var(--color-border); }
+        thead { background-color: var(--color-table-header-bg); }
+        th { font-weight: 700; color: var(--color-accent-neon); text-transform: uppercase; }
+        tbody tr:hover { background-color: var(--color-table-row-hover); box-shadow: inset 2px 0 0 0 var(--color-accent-neon); }
 
         .action-links a {
             text-decoration: none;
@@ -177,21 +144,11 @@
             border: 1px solid transparent;
             transition: all 0.2s ease-in-out;
         }
+        .action-links a:hover { border-color: var(--color-accent-neon); box-shadow: 0 0 5px var(--color-accent-neon); }
+        .action-links a.delete-link { color: var(--color-accent-pink); }
+        .action-links a.delete-link:hover { border-color: var(--color-accent-pink); box-shadow: var(--shadow-neon-pink); }
 
-        .action-links a:hover {
-            border-color: var(--color-accent-neon);
-            box-shadow: 0 0 5px var(--color-accent-neon);
-        }
-
-        .action-links a.delete-link {
-            color: var(--color-accent-pink);
-        }
-
-        .action-links a.delete-link:hover {
-            border-color: var(--color-accent-pink);
-            box-shadow: var(--shadow-neon-pink);
-        }
-
+        /* Create button */
         .create-record-btn {
             display: inline-block;
             margin-top: 2rem;
@@ -208,13 +165,9 @@
             box-shadow: 0 0 10px rgba(0, 255, 128, 0.4);
             text-transform: uppercase;
         }
+        .create-record-btn:hover { background-color: var(--color-accent-neon); color: var(--color-bg-primary); box-shadow: 0 0 20px var(--color-accent-neon); }
 
-        .create-record-btn:hover {
-            background-color: var(--color-accent-neon);
-            color: var(--color-bg-primary);
-            box-shadow: 0 0 20px var(--color-accent-neon);
-        }
-
+        /* Pagination */
         .pagination-container {
             margin-top: 20px;
             text-align: center;
@@ -223,11 +176,10 @@
             flex-wrap: wrap;
             gap: 0.5rem;
         }
-
         .pagination-container a,
         .pagination-container strong {
             display: inline-block;
-            padding: 0.6rem 1.2rem;
+            padding: 0.6rem 1rem;
             border: 2px solid var(--color-accent-neon);
             background: transparent;
             color: var(--color-accent-neon);
@@ -240,18 +192,17 @@
             box-shadow: 0 0 10px rgba(0, 255, 128, 0.4);
             transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
         }
+        .pagination-container a:hover { background-color: var(--color-accent-neon); color: var(--color-bg-primary); box-shadow: 0 0 20px var(--color-accent-neon); }
+        .pagination-container strong { background-color: var(--color-accent-neon); color: var(--color-bg-primary); box-shadow: 0 0 20px var(--color-accent-neon); cursor: default; }
 
-        .pagination-container a:hover {
-            background-color: var(--color-accent-neon);
-            color: var(--color-bg-primary);
-            box-shadow: 0 0 20px var(--color-accent-neon);
+        /* Responsive: keep buttons inline, just smaller */
+        @media (max-width: 768px) {
+            .pagination-container a,
+            .pagination-container strong { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
         }
-
-        .pagination-container strong {
-            background-color: var(--color-accent-neon);
-            color: var(--color-bg-primary);
-            box-shadow: 0 0 20px var(--color-accent-neon);
-            cursor: default;
+        @media (max-width: 480px) {
+            .pagination-container a,
+            .pagination-container strong { padding: 0.35rem 0.7rem; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -259,15 +210,9 @@
     <div class="container">
         <h1>User Data Grid // Access Terminal</h1>
 
-        <!-- Server-side search form -->
         <div class="search-container">
-            <form action="<?= site_url('users/show'); ?>" method="get" style="display:flex; align-items:center; width:100%;">
-                <?php
-                $q = '';
-                if(isset($_GET['q'])) {
-                    $q = $_GET['q'];
-                }
-                ?>
+            <form action="<?= site_url('users/show'); ?>" method="get">
+                <?php $q = isset($_GET['q']) ? $_GET['q'] : ''; ?>
                 <input type="text" name="q" placeholder="Search records..." value="<?= html_escape($q); ?>" id="searchBox">
                 <button type="submit" class="search-btn">Search</button>
             </form>
