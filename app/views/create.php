@@ -6,9 +6,6 @@
     <title>Create User | System Console</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /*
-        -- CSS Variables for a centralized theme --
-        */
         :root {
             --color-bg-primary: #0a0a0a;
             --color-bg-secondary: rgba(18, 18, 18, 0.7);
@@ -22,9 +19,6 @@
             --shadow-neon: 0 0 10px rgba(0, 255, 128, 0.5);
         }
 
-        /*
-        -- Base & Body Styles --
-        */
         body {
             background-color: var(--color-bg-primary);
             color: var(--color-text-primary);
@@ -41,9 +35,18 @@
             background-size: 40px 40px;
         }
 
-        /*
-        -- Main Container (Form) --
-        */
+        /* Animations */
+        @keyframes fadeSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .form-container {
             width: 90%;
             max-width: 500px;
@@ -57,11 +60,9 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            animation: fadeSlideUp 1s ease forwards;
         }
 
-        /*
-        -- Heading --
-        */
         h1 {
             font-family: var(--font-display);
             font-size: clamp(1.5rem, 5vw, 2.2rem);
@@ -71,11 +72,11 @@
             text-shadow: var(--shadow-neon);
             letter-spacing: 2px;
             text-transform: uppercase;
+            animation: fadeSlideUp 1s ease forwards;
+            animation-delay: 0.2s;
+            opacity: 0;
         }
 
-        /*
-        -- Form Elements --
-        */
         form {
             display: flex;
             flex-direction: column;
@@ -87,7 +88,13 @@
             display: flex;
             flex-direction: column;
             text-align: left;
+            opacity: 0;
+            animation: fadeSlideUp 0.8s ease forwards;
         }
+
+        .form-group:nth-child(1) { animation-delay: 0.4s; }
+        .form-group:nth-child(2) { animation-delay: 0.6s; }
+        .form-group:nth-child(3) { animation-delay: 0.8s; }
 
         label {
             font-size: 0.9rem;
@@ -118,10 +125,7 @@
             border-color: var(--color-accent-neon);
             box-shadow: 0 0 5px var(--color-accent-neon);
         }
-        
-        /*
-        -- Buttons & Links --
-        */
+
         button[type="submit"] {
             width: 100%;
             padding: 1rem 0;
@@ -139,6 +143,9 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-top: 1rem;
+            opacity: 0;
+            animation: fadeSlideUp 0.8s ease forwards;
+            animation-delay: 1s;
         }
 
         button[type="submit"]:hover {
@@ -146,7 +153,7 @@
             color: var(--color-bg-primary);
             box-shadow: 0 0 20px var(--color-accent-neon);
         }
-        
+
         .back-link {
             display: inline-block;
             margin-top: 2rem;
@@ -158,6 +165,9 @@
             border: 1px solid transparent;
             padding: 0.5rem 1rem;
             border-radius: 8px;
+            opacity: 0;
+            animation: fadeSlideUp 0.8s ease forwards;
+            animation-delay: 1.2s;
         }
 
         .back-link:hover {
@@ -165,7 +175,6 @@
             border-color: var(--color-accent-neon);
             box-shadow: 0 0 5px var(--color-accent-neon);
         }
-        
     </style>
 </head>
 <body>

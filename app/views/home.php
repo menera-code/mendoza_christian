@@ -6,9 +6,6 @@
     <title>Home | System Console</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /*
-        -- CSS Variables for a centralized theme --
-        */
         :root {
             --color-bg-primary: #0a0a0a;
             --color-bg-secondary: rgba(18, 18, 18, 0.7);
@@ -20,9 +17,6 @@
             --shadow-neon: 0 0 10px rgba(0, 255, 128, 0.5);
         }
 
-        /*
-        -- Base & Body Styles --
-        */
         body {
             background-color: var(--color-bg-primary);
             color: var(--color-text-primary);
@@ -39,9 +33,12 @@
             background-size: 40px 40px;
         }
 
-        /*
-        -- Main Container --
-        */
+        /* Animation */
+        @keyframes fadeSlideUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
         .container {
             width: 90%;
             max-width: 500px;
@@ -55,11 +52,9 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            animation: fadeSlideUp 1s ease forwards;
         }
 
-        /*
-        -- Heading --
-        */
         h1 {
             font-family: var(--font-display);
             font-size: clamp(1.5rem, 5vw, 2.5rem);
@@ -69,11 +64,11 @@
             text-shadow: var(--shadow-neon);
             letter-spacing: 2px;
             text-transform: uppercase;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease forwards;
+            animation-delay: 0.2s;
         }
 
-        /*
-        -- Button Group --
-        */
         .btn-group {
             display: flex;
             flex-direction: column;
@@ -82,9 +77,6 @@
             align-items: center;
         }
 
-        /*
-        -- Button Style --
-        */
         .main-btn {
             display: block;
             width: 100%;
@@ -102,7 +94,12 @@
             text-shadow: 0 0 5px var(--color-accent-neon);
             box-shadow: 0 0 10px rgba(0, 255, 128, 0.4);
             cursor: pointer;
+            opacity: 0;
+            animation: fadeSlideUp 0.8s ease forwards;
         }
+
+        .main-btn:nth-child(1) { animation-delay: 0.4s; }
+        .main-btn:nth-child(2) { animation-delay: 0.6s; }
 
         .main-btn:hover {
             background-color: var(--color-accent-neon);
@@ -110,25 +107,11 @@
             box-shadow: 0 0 25px var(--color-accent-neon);
         }
 
-        /*
-        -- Responsive Adjustments --
-        */
         @media (max-width: 480px) {
-            body {
-                padding: 1rem;
-            }
-
-            .container {
-                padding: 2rem 1.5rem;
-            }
-
-            h1 {
-                margin-bottom: 2rem;
-            }
-
-            .btn-group {
-                gap: 1.2rem;
-            }
+            body { padding: 1rem; }
+            .container { padding: 2rem 1.5rem; }
+            h1 { margin-bottom: 2rem; }
+            .btn-group { gap: 1.2rem; }
         }
     </style>
 </head>
