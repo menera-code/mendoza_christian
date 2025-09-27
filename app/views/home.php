@@ -1,127 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | System Console</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-bg-primary: #0a0a0a;
-            --color-bg-secondary: rgba(18, 18, 18, 0.7);
-            --color-text-primary: #f0f0f0;
-            --color-accent-neon: #00ff80;
-            --color-border: #333;
-            --font-display: 'Orbitron', sans-serif;
-            --font-mono: 'Roboto Mono', monospace;
-            --shadow-neon: 0 0 10px rgba(0, 255, 128, 0.5);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | System Console</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #dbeafe 0%, #ffffff 100%);
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --text-main: #1e293b;
+      --text-light: #64748b;
+      --accent: #2563eb; /* modern blue */
+      --accent-glow: rgba(37, 99, 235, 0.6);
+      --shadow-glass: 0 8px 32px rgba(37, 99, 235, 0.1);
+      --radius: 18px;
+    }
 
-        body {
-            background-color: var(--color-bg-primary);
-            color: var(--color-text-primary);
-            font-family: var(--font-mono);
-            margin: 0;
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-image:
-                linear-gradient(to right, rgba(0, 255, 128, 0.07) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 255, 128, 0.07) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      padding: 2rem;
+    }
 
-        /* Animation */
-        @keyframes fadeSlideUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
 
-        .container {
-            width: 90%;
-            max-width: 500px;
-            background: var(--color-bg-secondary);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--color-border);
-            box-shadow: var(--shadow-neon);
-            padding: 3rem;
-            border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            animation: fadeSlideUp 1s ease forwards;
-        }
+    .container {
+      width: 100%;
+      max-width: 520px;
+      background: var(--glass-bg);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: var(--shadow-glass);
+      text-align: center;
+      animation: fadeUp 0.9s ease forwards;
+    }
 
-        h1 {
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: var(--color-accent-neon);
-            text-shadow: var(--shadow-neon);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            opacity: 0;
-            animation: fadeSlideUp 1s ease forwards;
-            animation-delay: 0.2s;
-        }
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent-glow);
+      letter-spacing: 1px;
+      animation: fadeUp 1s ease forwards;
+    }
 
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            width: 100%;
-            align-items: center;
-        }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      align-items: center;
+    }
 
-        .main-btn {
-            display: block;
-            width: 100%;
-            max-width: 320px;
-            padding: 1rem 0;
-            background-color: transparent;
-            color: var(--color-accent-neon);
-            text-decoration: none;
-            border: 2px solid var(--color-accent-neon);
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            font-family: var(--font-display);
-            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-            text-shadow: 0 0 5px var(--color-accent-neon);
-            box-shadow: 0 0 10px rgba(0, 255, 128, 0.4);
-            cursor: pointer;
-            opacity: 0;
-            animation: fadeSlideUp 0.8s ease forwards;
-        }
+    .main-btn {
+      display: inline-block;
+      width: 100%;
+      max-width: 280px;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius);
+      border: 2px solid var(--accent);
+      background: rgba(255, 255, 255, 0.25);
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px rgba(37, 99, 235, 0.25);
+    }
 
-        .main-btn:nth-child(1) { animation-delay: 0.4s; }
-        .main-btn:nth-child(2) { animation-delay: 0.6s; }
+    .main-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 6px 20px var(--accent-glow);
+      transform: translateY(-3px);
+    }
 
-        .main-btn:hover {
-            background-color: var(--color-accent-neon);
-            color: var(--color-bg-primary);
-            box-shadow: 0 0 25px var(--color-accent-neon);
-        }
+    /* Add subtle floating animation for modern vibe */
+    .container:hover {
+      transform: translateY(-4px);
+      transition: transform 0.3s ease;
+    }
 
-        @media (max-width: 480px) {
-            body { padding: 1rem; }
-            .container { padding: 2rem 1.5rem; }
-            h1 { margin-bottom: 2rem; }
-            .btn-group { gap: 1.2rem; }
-        }
-    </style>
+    @media (max-width: 500px) {
+      .container {
+        padding: 2rem 1.5rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Student Management</h1>
-        <div class="btn-group">
-            <a href="<?=site_url('users/show');?>" class="main-btn">View Students List</a>
-            <a href="<?=site_url('users/create');?>" class="main-btn">Add Students</a>
-        </div>
+  <div class="container">
+    <h1>Student Management</h1>
+    <div class="btn-group">
+      <a href="<?=site_url('users/show');?>" class="main-btn">📋 View Students List</a>
+      <a href="<?=site_url('users/create');?>" class="main-btn">➕ Add Student</a>
     </div>
+  </div>
 </body>
 </html>
