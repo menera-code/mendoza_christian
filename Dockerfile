@@ -16,4 +16,12 @@ COPY . /var/www/html/
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
-EXPOSE 80
+# Render will set PORT dynamically
+ENV PORT=10000
+EXPOSE 10000
+
+# Make Apache listen on $PORT
+RUN sed -i "s/Listen 80/Listen ${PORT}/" /etc/apache2/ports.conf \
+    && echo "<VirtualHost *:${PORT}>\nDocumentRoot /var/www/html\n</VirtualHost>" > /etc/apache2/sites-available/000-default.conf
+
+CMD ["apache2-foreground"]
