@@ -48,3 +48,6 @@ $router->get('/users/show/', 'UserController::show');
 $router->match('/users/create', 'UserController::create', ['GET','POST']);
 $router->match('/users/update/{id}', 'UserController::update', ['GET','POST']);
 $router->get('/users/delete/{id}', 'UserController::delete');
+$router->match('/auth/login', 'AuthController::login', ['GET','POST']);
+$router->match('/auth/register', 'AuthController::register', ['GET','POST']);
+$router->get('/auth/logout', 'AuthController::logout');
