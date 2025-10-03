@@ -90,6 +90,10 @@ class Controller
 	 */
 	public function __construct()
 	{
+		$this->properties['request'] = $_REQUEST;
+		$this->properties['get'] = $_GET;
+		$this->properties['post'] = $_POST;
+
 		$this->before_action();
 
 		self::$instance = $this;
