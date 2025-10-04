@@ -3,6 +3,17 @@
 if (!isset($users) || !is_array($users)) {
     $users = [];
 }
+
+if(session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to home or login page
+    header('Location: /home');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -235,6 +246,11 @@ if (!isset($users) || !is_array($users)) {
         <button type="submit">Search</button>
       </form>
     </div>
+     <div style="text-align: right; margin-bottom: 1rem;">
+  <a href="<?= site_url('/home'); ?>" class="create-record-btn" style="background:#ef4444;">
+    Logout
+  </a>
+</div>
 
     <div class="table-responsive">
       <table>

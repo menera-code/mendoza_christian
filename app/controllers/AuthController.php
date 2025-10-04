@@ -1,6 +1,8 @@
 <?php
 // No namespace needed for LavaLust 4.x
 
+
+
 class AuthController extends Controller
 {
     protected $db;
@@ -109,4 +111,32 @@ class AuthController extends Controller
         // GET request → show register page
         $this->call->view('auth/register');
     }
+
+    public function index() {
+    $this->call->view('home'); // this will load /views/home.php
 }
+
+public function logout() {
+    // Start session if not already started
+    if(session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    // Unset all session variables
+    $_SESSION = [];
+
+    // Destroy the session
+    session_destroy();
+
+    // Redirect to home page
+    header('Location: /');
+    exit;
+}
+
+
+
+
+ 
+}
+
+

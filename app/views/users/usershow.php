@@ -238,6 +238,10 @@ if (!isset($users) || !is_array($users)) {
         <button type="submit">Search</button>
       </form>
     </div>
+      <div style="text-align: right; margin-bottom: 1rem;">
+  <a href="<?= site_url('/home'); ?>" class="create-record-btn" style="background:#ef4444;">
+    Logout
+  </a>
 
     <div class="table-wrapper">
   <div class="table-responsive">
@@ -278,5 +282,6 @@ if (!isset($users) || !is_array($users)) {
       <a href="<?= site_url('users/create'); ?>" class="create-record-btn">+ Create New Record</a>
     </div>
   </div>
+</div>
 </body>
 </html>
