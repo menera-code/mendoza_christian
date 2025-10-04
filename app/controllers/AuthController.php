@@ -36,14 +36,17 @@ class AuthController extends Controller
         // Check password
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_name'] = $user['name'];
-            $_SESSION['user_email'] = $user['email'];
-
-            // Redirect to users/show page
-            header('Location: /users/show');
-            exit;
+            $_SESSION['role'] = $user['role'];
+            
+        if ($user['role'] === 'admin') {
+            header("Location: /users/show");
+     exit;
         } else {
-            $this->call->view('auth/login', ['error' => 'Invalid email or password']);
+            header("Location: /users/usershow");
+            exit;
+        }
+    } else {
+        $this->call->view('auth/login', ['error' => 'Invalid email or password']);
             return;
         }
     }
@@ -89,7 +92,8 @@ class AuthController extends Controller
                 'name'       => $name,
                 'email'      => $email,
                 'password'   => $hashedPassword,
-                'created_at' => date('Y-m-d H:i:s')
+                'created_at' => date('Y-m-d H:i:s'),
+                'role'     => 'user' // default role
             ]);
 
             if (!$inserted) {
