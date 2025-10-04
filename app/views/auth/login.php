@@ -1,10 +1,52 @@
-<?php if (!empty($_SESSION['flash_error'])): ?>
-  <div><?= $_SESSION['flash_error']; unset($_SESSION['flash_error']); ?></div>
-<?php endif; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title mb-4 text-center">Login</h3>
 
-<form method="post" action="<?= base_url('auth/login') ?>">
-  <input name="email"    type="email" placeholder="Email" required><br>
-  <input name="password" type="password" placeholder="Password" required><br>
-  <button type="submit">Login</button>
-</form>
-<p>No account? <a href="<?= base_url('auth/register') ?>">Register here</a></p>
+                    <!-- Display errors -->
+                    <?php if (!empty($errors ?? [])) : ?>
+                        <div class="alert alert-danger">
+                            <?php foreach ($errors as $err) : ?>
+                                <div><?= htmlspecialchars($err) ?></div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty($error ?? '')) : ?>
+                        <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+                    <?php endif; ?>
+
+                    <form method="POST" action="/auth/login">
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+
+                    <div class="mt-3 text-center">
+                        <a href="/auth/register">Don't have an account? Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

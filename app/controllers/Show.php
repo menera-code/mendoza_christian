@@ -1,14 +1,18 @@
 <?php
-class Show extends Controller
+class UserController extends Controller
 {
-    public function index()
+    public function show()
     {
         // if not logged in, redirect to login
-        if (!function_exists('logged_in') || !logged_in()) {
-            redirect('auth/login');
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /auth/login');
+            exit;
         }
 
-        // render the show view (app/views/show.php)
-        return $this->view('show');
+        // fetch all users
+        $users = $this->db->table('users')->get() ?: [];
+
+        // render the show view with $users
+        $this->call->view('users/show', ['users' => $users]);
     }
 }

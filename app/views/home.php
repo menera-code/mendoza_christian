@@ -110,8 +110,8 @@
   <div class="container">
     <h1>Student Management</h1>
     <div class="btn-group">
-      <a href="<?=site_url('auth/login');?>" class="main-btn">📋 View Students List</a>
-      <a href="<?=site_url('auth/register');?>" class="main-btn">➕ Add Student</a>
+      <a href="<?=site_url('auth/login');?>" class="main-btn">Log In</a>
+      <a href="<?=site_url('auth/register');?>" class="main-btn">Register</a>
     </div>
   </div>
 </body>

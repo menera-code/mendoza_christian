@@ -22,7 +22,7 @@ class UserController extends Controller {
             $q = trim($this->io->get('q'));
         }
 
-        $records_per_page = 10; // number of users per page
+        $records_per_page = 5; // number of users per page
 
         // Call model's pagination method
         $all = $this->UserModel->page($q, $records_per_page, $page);
@@ -41,8 +41,8 @@ class UserController extends Controller {
         $this->pagination->initialize($total_rows, $records_per_page, $page, site_url('users/show').'?q='.$q);
 
         // Send data to view
-        $data['page'] = $this->pagination->paginate();
-        $this->call->view('show', $data);
+        $data['pagination_links'] = $this->pagination->paginate();
+$this->call->view('users/show', $data);
     }
 
     public function create() {
