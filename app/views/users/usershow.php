@@ -239,7 +239,7 @@ if (!isset($users) || !is_array($users)) {
       </form>
     </div>
       <div style="text-align: right; margin-bottom: 1rem;">
-  <a href="<?= site_url('/home'); ?>" class="create-record-btn" style="background:#ef4444;">
+  <a href="<?= site_url('/'); ?>" class="create-record-btn" style="background:#ef4444;">
     Logout
   </a>
 
