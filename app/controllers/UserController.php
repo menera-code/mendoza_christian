@@ -92,7 +92,7 @@ $this->call->view('users/show', $data);
                 'email' => $email
             );
             if($this->UserModel->insert($data)){
-                redirect('users/show');
+                redirect('users/usershow');
             } else {
                 echo 'Something went wrong';
             }
