@@ -232,7 +232,7 @@ if (!isset($users) || !is_array($users)) {
     <h1>STUDENTS</h1>
 
     <div class="search-container">
-      <form action="<?= site_url('users/show'); ?>" method="get">
+      <form action="<?= site_url('users/usershow'); ?>" method="get">
         <?php $q = $_GET['q'] ?? ''; ?>
         <input type="text" name="q" placeholder="Search records..." value="<?= htmlspecialchars($q); ?>">
         <button type="submit">Search</button>
